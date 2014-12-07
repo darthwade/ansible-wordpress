@@ -1,0 +1,5 @@
+---
+- hosts: webservers
+  roles:
+  - role: common
+  - role: webtier

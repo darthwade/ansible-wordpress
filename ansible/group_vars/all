@@ -1,0 +1,162 @@
+---
+# Timezone
+timezone: UTC
+
+# UFW
+ufw_default_forward_policy: ACCEPT
+ufw_logging: full
+
+ufw_applications:
+- name: "OpenSSH"
+
+ufw_rules:
+# WWW
+- port: 80
+  rule: allow
+# SSH
+- port: 22
+  rule: allow
+# Monit
+- port: 3737
+  rule: allow
+
+# Git
+git_install_from_source: no
+git_prefix: "/usr/local"
+git_version: "1.9.0"
+
+git_install_server: no
+git_server_base_path: "/srv/git"
+git_server_export_all: yes
+
+# WordPress
+wp_version: 4.0
+wp_install_dir: '/var/sites/awesome_wordpress_site'
+wp_db_name: 'awesome_wp_db'
+wp_db_user: 'awesome_wp_user'
+wp_db_password: 'awesome_wp_pass'
+wp_db_host: 'localhost'
+
+wp_apache_hostname: 'localhost'
+wp_apache_alias: '{{wp_apache_hostname}}'
+wp_apache_admin_email: 'admin@example.com'
+
+# MySQL
+mysql_port: 3306
+# mysql_bind_address: 'localhost'
+mysql_root_password: 'super_secure_password'
+mysql_databases:
+  - name: '{{wp_db_name}}'
+    encoding: 'utf8'
+    collation: 'utf8_general_ci'
+mysql_users:
+  - name: '{{wp_db_user}}'
+    host: "%"
+    password: '{{wp_db_password}}'
+    priv: '{{wp_db_name}}.*:ALL'
+
+# PHP
+php_memory_limit: "128M"
+php_max_execution_time: "90"
+php_upload_max_filesize: "256M"
+php_packages:
+- php5
+- php5-cli
+- php5-common
+- php5-curl
+- php5-dev
+- php5-gd
+- php5-gmp
+- php5-mcrypt
+- php5-memcache
+- php5-mysql
+- php5-xsl
+- php-apc
+- php-pear
+- libapache2-mod-php5
+- php5-fpm
+
+# Apache
+apache_listen_port: 80
+apache_mods_enabled:
+- rewrite.load
+- ssl.load
+
+# Memcached
+memcached_user: memcache
+
+memcached_port: 11211
+memcached_listen_ip: 127.0.0.1
+
+memcached_memory_limit: 64
+memcached_connections: 1024
+
+memcached_log_file: /var/log/memcached.log
+
+# Auto MySQL Backup
+# database username and password that will perform the backups
+automysqlbackup_username: "$(grep user /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
+automysqlbackup_password: "$(grep password /etc/mysql/debian.cnf | tail -n 1 | cut -d'=' -f2 | awk '{print $1}')"
+
+# hostname or ip address of the database server
+automysqlbackup_host: localhost
+
+# space separated string of databases to include or ignore in the backup
+automysqlbackup_dbames: "all"
+automysqlbackup_dbexclude: ""
+
+# whether to include a create database statement
+automysqlbackup_createdb_stmt: "yes"
+
+automysqlbackup_backup_directory: /var/lib/automysqlbackup
+
+# backup each database in a separate directory or everything to a single file
+automysqlbackup_sepdir: "yes"
+
+# day of the week for weekly backbackups (6 - Saturday)
+automysqlbackup_doweekly: 6
+
+# output location (log, files, stdout, quiet) and where output is sent (user / email address)
+automysqlbackup_mailcontent: quiet
+automysqlbackup_mailaddr: root
+
+# default cron configuration
+automysqlbackup_cron:
+  minute: 0
+  hour: 0
+  day: "*"
+  month: "*"
+  weekday: "*"
+
+automysqlbackup_latest: "no"
+
+
+# Monit
+monit_notify_email: "admin_email@example.com"
+
+monit_logfile: "syslog facility log_daemon"
+
+monit_poll_period: 60
+monit_poll_start_delay: 120
+
+monit_eventqueue_directory: "/var/lib/monit/events"
+monit_eventque_slots: 100
+
+monit_mailformat_from: "monit@{{inventory_hostname}}"
+monit_mailformat_subject: "$SERVICE $EVENT"
+monit_mailformat_message: "Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION."
+
+monit_mailserver_host: "localhost"
+# monit_mailserver_port:
+# monit_mailserver_username:
+# monit_mailserver_password:
+# monit_mailserver_encryption:
+monit_mailserver_timeout: 60
+
+monit_port: 3737
+monit_address: "localhost"
+monit_allow: ["localhost"]
+monit_username: 'admin'
+monit_password: 'super_secure_password'
+monit_ssl: no
+monit_cert: "/etc/monit/monit.pem"

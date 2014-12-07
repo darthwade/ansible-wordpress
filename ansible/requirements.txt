@@ -1,0 +1,16 @@
+ANXS.hostname,v1.0.4
+franklinkim.ufw,1.3.0
+ANXS.git,v1.0.1
+geerlingguy.php,1.2.12
+geerlingguy.apache,1.3.0
+geerlingguy.mysql
+ANXS.monit,v1.0.1
+yatesr.timezone
+darthwade.php-pecl
+darthwade.zend-opcache
+darthwade.wordpress
+darthwade.wordpress-apache
+geerlingguy.memcached
+geerlingguy.php-memcached
+MaximeThoonsen.automysqlbackup
+ANXS.monit

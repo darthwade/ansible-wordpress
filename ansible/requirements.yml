@@ -1,0 +1,38 @@
+---
+- src: ANXS.hostname
+  version: v1.0.4
+
+- src: yatesr.timezone
+
+- src: franklinkim.ufw
+  version: 1.3.0
+
+- src: ANXS.git
+  version: v1.0.1
+
+- src: geerlingguy.php
+  version: 1.2.12
+
+- src: geerlingguy.apache
+  version: 1.3.0
+
+- src: geerlingguy.mysql
+
+- src: ANXS.monit
+  version: v1.0.1
+
+- src: darthwade.php-pecl
+
+- src: darthwade.zend-opcache
+
+- src: darthwade.wordpress
+
+- src: darthwade.wordpress-apache
+
+- src: geerlingguy.memcached
+
+- src: geerlingguy.php-memcached
+
+- src: MaximeThoonsen.automysqlbackup
+
+- src: ANXS.monit

@@ -1,0 +1,6 @@
+---
+dependencies:
+- role: 'geerlingguy.php'
+- role: 'darthwade.zend-opcache'
+- role: 'geerlingguy.apache'
+- role: 'darthwade.wordpress-apache'

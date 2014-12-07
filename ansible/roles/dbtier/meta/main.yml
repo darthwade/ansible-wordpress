@@ -1,0 +1,4 @@
+---
+dependencies:
+- role: 'geerlingguy.mysql'
+- role: 'MaximeThoonsen.automysqlbackup'

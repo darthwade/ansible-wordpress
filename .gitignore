@@ -1,0 +1,10 @@
+.*
+*~
+!.git*
+!.travis.yml
+vagrant_*
+
+*.pem
+host_vars/*
+!host_vars/localhost
+!host_vars/example.com

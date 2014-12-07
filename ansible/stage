@@ -1,0 +1,34 @@
+[frankfurt-webservers]
+localhost
+
+[frankfurt-dbservers]
+localhost
+
+[frankfurt-cacheservers]
+localhost
+
+[frankfurt-monitoring]
+localhost
+
+# webservers in all geos
+[webservers:children]
+frankfurt-webservers
+
+# dbservers in all geos
+[dbservers:children]
+frankfurt-dbservers
+
+# cacheservers in all geos
+[cacheservers:children]
+frankfurt-cacheservers
+
+# monitoring in all geos
+[monitoring:children]
+frankfurt-monitoring
+
+# everything in the frankfurt geo
+[frankfurt:children]
+frankfurt-webservers
+frankfurt-dbservers
+frankfurt-cacheservers
+frankfurt-monitoring

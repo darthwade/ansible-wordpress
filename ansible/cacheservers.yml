@@ -1,0 +1,5 @@
+---
+- hosts: cacheservers
+  roles:
+  - role: common
+  - role: cachetier

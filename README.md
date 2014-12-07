@@ -5,7 +5,6 @@
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=darthwade&url=https://github.com/darthwade/ansible-wordpress&title=Ansible Role: WordPress Apache&language=&tags=github&category=software) 
 
 Ansible playbook for setting up WordPress, Apache, PHP + Zend OpCache, MySQL, Auto MySQL Backup, Memcached, Monit, Git, UFW.
-Ansible role that installs and configures WordPress on Apache.
 
 Features include:
 - Installation of any WordPress version
